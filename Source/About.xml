@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Precepts and Memes - Rituals module</name>
+  <author>Zezz</author>
+  <supportedVersions>
+    <li>1.3</li>
+  </supportedVersions>
+  <packageId>Zezz.PandM.Rituals</packageId>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+    <li>
+      <packageId>Zezz.PandM</packageId>
+      <displayName>Precepts and Memes</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2582413611</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>ludeon.rimworld.ideology</packageId>
+      <displayName>Ideology</displayName>
+    </li>
+    <li>
+      <packageId>thesepeople.RitualAttachableOutcomes</packageId>
+      <displayName>Custom Ritual Framework</displayName>
+      <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2561617361</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>ludeon.rimworld.ideology</li>
+    <li>Zezz.PandM</li>
+    <li>Custom Ritual Framework</li>
+  </loadAfter>
+  <description>
+	Adds new rituals for the Precepts and Memes mod. 
+	</description>
+</ModMetaData>

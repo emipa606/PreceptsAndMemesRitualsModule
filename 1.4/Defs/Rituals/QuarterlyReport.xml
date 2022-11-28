@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <RulePackDef>
+    <defName>NamerRitualQuarterlyReport</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_ritualName-&gt;[ritNoun] of [keyDeity]</li>
+        <li>r_ritualName-&gt;[ritNoun] of [chosenTheme]</li>
+        <li>r_ritualName-&gt;[ritNoun] of [memeConcept]</li>
+        <li>r_ritualName-&gt;[memeAdjective] [ritNoun]</li>
+        <li>ritNoun-&gt;report</li>
+        <li>ritNoun-&gt;analysis</li>
+        <li>ritNoun-&gt;records</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+  <PreceptDef>
+    <defName>QuarterlyReport</defName>
+    <label>quarterly report</label>
+    <description>A report of all the winnings and losses made in the last season.</description>
+    <issue>Ritual</issue>
+    <impact>Medium</impact>
+    <iconPath>UI/Abilities/LeaderSpeech</iconPath>
+    <preceptClass>Precept_Ritual</preceptClass>
+    <ritualPatternBase>QuarterlyReport</ritualPatternBase>
+    <allowDuplicates>false</allowDuplicates>
+    <countsTowardsPreceptLimit>true</countsTowardsPreceptLimit>
+    <selectionWeight>1.0</selectionWeight>
+    <displayOrderInImpact>100</displayOrderInImpact>
+    <ignoreLimitsInEditMode>false</ignoreLimitsInEditMode>
+    <receivesExpectationsQualityOffset>false</receivesExpectationsQualityOffset>
+    <canGenerateAsSpecialPrecept>false</canGenerateAsSpecialPrecept>
+    <associatedMemes>
+      <li>Trader</li>
+    </associatedMemes>
+    <requiredMemes>
+      <li>Trader</li>
+    </requiredMemes>
+    <modExtensions>
+      <li Class="TPRitualAttachableOutcomes.Precept_Ritual_Custom">
+        <coolDownDays>15</coolDownDays>
+      </li>
+    </modExtensions>
+  </PreceptDef>
+  <RitualPatternDef>
+    <defName>QuarterlyReport</defName>
+    <ritualBehavior>QuarterlyReport</ritualBehavior>
+    <ritualObligationTargetFilter>RitualSpotOrAltar</ritualObligationTargetFilter>
+    <ritualOutcomeEffect>QuarterlyReport</ritualOutcomeEffect>
+    <nameMaker>NamerRitualQuarterlyReport</nameMaker>
+    <shortDescOverride>Quarterly Report</shortDescOverride>
+    <descOverride>Report on last quarter earnings</descOverride>
+    <ritualOnlyForIdeoMembers>true</ritualOnlyForIdeoMembers>
+    <canStartAnytime>true</canStartAnytime>
+    <tags>
+      <li>QuarterlyReport</li>
+    </tags>
+    <patternGroupTag>QuarterlyReport</patternGroupTag>
+  </RitualPatternDef>
+  <RitualBehaviorDef>
+    <defName>QuarterlyReport</defName>
+    <workerClass>RitualBehaviorWorker_Speech</workerClass>
+    <durationTicks>5000</durationTicks>
+    <letterTitle>{RITUAL_labelCap}</letterTitle>
+    <letterText>{SPEAKER_labelShort} is giving a {RITUAL_labelIndef}.
+      \nIf all goes well, listeners will feel inspired, and gain a bonus to their trade prices. If it goes poorly, the speech will reduce their ability to trade.</letterText>
+    <roles>
+      <li Class="RitualRoleTag">
+        <label>speaker</label>
+        <tag>Leader</tag>
+        <id>speaker</id>
+        <precept>IdeoRole_Leader</precept>
+        <required>True</required>
+        <substitutable>True</substitutable>
+        <maxCount>1</maxCount>
+        <countsAsParticipant>False</countsAsParticipant>
+      </li>
+    </roles>
+    <stages>
+      <li>
+        <defaultDuty>Spectate</defaultDuty>
+        <allowedSpectateSidesOverride>Vertical</allowedSpectateSidesOverride>
+        <spectateDistanceOverride>1</spectateDistanceOverride>
+        <spectatorsRequired>true</spectatorsRequired>
+        <endTriggers>
+          <li Class="StageEndTrigger_DurationPercentage">
+            <percentage>1</percentage>
+          </li>
+        </endTriggers>
+        <roleBehaviors>
+          <li>
+            <roleId>speaker</roleId>
+            <dutyDef>SpeakOnCell_Leader</dutyDef>
+            <speakerInteraction>Speech_Leader</speakerInteraction>
+            <customPositions>
+              <li Class="RitualPosition_BesideThing" />
+            </customPositions>
+          </li>
+        </roleBehaviors>
+        <visualEffectDef>Speech</visualEffectDef>
+      </li>
+    </stages>
+  </RitualBehaviorDef>
+  <RitualOutcomeEffectDef>
+    <defName>QuarterlyReport</defName>
+    <description>Depending on ritual quality, participants will get between -6 and +6 mood for {MOODDAYS} days.</description>
+    <workerClass>TPRitualAttachableOutcomes.RitualOutcomeEffectWorker_FromQuality_TP_Custom</workerClass>
+    <allowAttachableOutcome>false</allowAttachableOutcome>
+    <comps>
+      <li Class="RitualOutcomeComp_RolePresentNotSubstituted">
+        <roleId>speaker</roleId>
+        <label>leader present</label>
+        <qualityOffset>0.3</qualityOffset>
+      </li>
+      <li Class="RitualOutcomeComp_ParticipantCount">
+        <label>participant count</label>
+        <curve>
+          <points>
+            <li>(1,  0.0)</li>
+            <li>(5,  0.40)</li>
+          </points>
+        </curve>
+      </li>
+      <li Class="RitualOutcomeComp_BuildingOfDefUsed">
+        <def>Lectern</def>
+        <qualityOffset>0.15</qualityOffset>
+        <maxHorDistFromTarget>5</maxHorDistFromTarget>
+      </li>
+      <li Class="RitualOutcomeComp_RitualSeatPresent">
+        <qualityOffset>0.15</qualityOffset>
+      </li>
+    </comps>
+    <outcomeChances>
+      <li>
+        <label>Terrible</label>
+        <chance>0.05</chance>
+        <memory>TerribleQuarterlyReport</memory>
+        <description>The {0} was terrible! Our profits are plumeting!</description>
+        <positivityIndex>-2</positivityIndex>
+      </li>
+      <li>
+        <label>Bad</label>
+        <chance>0.15</chance>
+        <memory>BadQuarterlyReport</memory>
+        <description>The {0} was bad. The profits this season are surely going down.</description>
+        <positivityIndex>-1</positivityIndex>
+      </li>
+      <li>
+        <label>Satisfying</label>
+        <chance>0.65</chance>
+        <memory>SatisfyingQuarterlyReport</memory>
+        <description>The {0} was satisfying. We're sure to make a profit this quarter.</description>
+        <positivityIndex>1</positivityIndex>
+      </li>
+      <li>
+        <label>Spectacular</label>
+        <chance>0.15</chance>
+        <memory>SpectacularQuarterlyReport</memory>
+        <description>The {0} was spectacular! We'll soon be sitting at the top if things keep going like this.</description>
+        <positivityIndex>2</positivityIndex>
+      </li>
+    </outcomeChances>
+    <modExtensions>
+      <li Class="TPRitualAttachableOutcomes.RitualAttachableOutcomeEffectDef_TP_Custom">
+        <node Class="TPRitualAttachableOutcomes.RitualAttachableOutcomeEffectDef_TP_Custom_Node">
+          <li>
+            <triggerPositivityIndex>
+              <li>-2</li>
+              <li>-1</li>
+            </triggerPositivityIndex>
+            <hediffToAdd>
+              <li>TradePriceDown</li>
+            </hediffToAdd>
+          </li>
+          <li>
+            <triggerPositivityIndex>
+              <li>1</li>
+              <li>2</li>
+            </triggerPositivityIndex>
+            <hediffToAdd>
+              <li>TradePriceUp</li>
+            </hediffToAdd>
+          </li>
+        </node>
+      </li>
+    </modExtensions>
+  </RitualOutcomeEffectDef>
+  <ThoughtDef>
+    <defName>TerribleQuarterlyReport</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>terrible ritual</label>
+        <description>Profits are plumeting...</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>BadQuarterlyReport</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>bad ritual</label>
+        <description>Business is doing anything but fine.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>SatisfyingQuarterlyReport</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>satisfying ritual</label>
+        <description>Our profits are steadily growing.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>SpectacularQuarterlyReport</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>spectacular ritual</label>
+        <description>We'll be swiming in silver soon enough</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <HediffDef>
+    <defName>TradePriceUp</defName>
+    <label>Improved trade prices</label>
+    <description>Inspired to do trade.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>900000</disappearsAfterTicks>
+        <showRemainingTime>True</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath" />
+    </comps>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <TradePriceImprovement>0.15</TradePriceImprovement>
+        </statOffsets>
+      </li>
+    </stages>
+    <defaultLabelColor>(0.3, 1, 0.3)</defaultLabelColor>
+  </HediffDef>
+  <HediffDef>
+    <defName>TradePriceDown</defName>
+    <label>Impaired trade prices</label>
+    <description>Uninspired to do trade.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>900000</disappearsAfterTicks>
+        <showRemainingTime>True</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath" />
+    </comps>
+    <isBad>true</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <TradePriceImprovement>-0.15</TradePriceImprovement>
+        </statOffsets>
+      </li>
+    </stages>
+    <defaultLabelColor>(0.3, 1, 0.3)</defaultLabelColor>
+  </HediffDef>
+</Defs>

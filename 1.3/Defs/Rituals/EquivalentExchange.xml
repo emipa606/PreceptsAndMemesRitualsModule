@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <RulePackDef>
+    <defName>NamerRitualEquivExchange</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_ritualName-&gt;[ritNoun] of [keyDeity]</li>
+        <li>r_ritualName-&gt;[ritNoun] of [chosenTheme]</li>
+        <li>r_ritualName-&gt;[ritNoun] of [memeConcept]</li>
+        <li>r_ritualName-&gt;[memeAdjective] [ritNoun]</li>
+        <li>ritNoun-&gt;return</li>
+        <li>ritNoun-&gt;revival</li>
+        <li>ritNoun-&gt;rise</li>
+        <li>ritNoun-&gt;awakening</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+  <RitualObligationTargetFilterDef>
+    <defName>AnyGrave</defName>
+    <workerClass>MemesAndP.RitualObligationTargetWorker_GraveWithCorpse</workerClass>
+  </RitualObligationTargetFilterDef>
+  <PreceptDef>
+    <defName>EquivalentExchange</defName>
+    <label>equivalen exchange ritual</label>
+    <description>Allows you to exchange the life of one pawn to bring another back to life. The sacrifice must be a willing colonist of your own faction and ideoligion. There's a chance for it to fail.</description>
+    <issue>Ritual</issue>
+    <impact>Medium</impact>
+    <iconPath>UI/Icons/Rituals/RitualFuneral</iconPath>
+    <preceptClass>Precept_Ritual</preceptClass>
+    <ritualPatternBase>EquivalentExchange</ritualPatternBase>
+    <allowDuplicates>false</allowDuplicates>
+    <countsTowardsPreceptLimit>true</countsTowardsPreceptLimit>
+    <selectionWeight>0.2</selectionWeight>
+    <displayOrderInImpact>100</displayOrderInImpact>
+    <ignoreLimitsInEditMode>false</ignoreLimitsInEditMode>
+    <associatedMemes>
+      <li>Necrolatry</li>
+    </associatedMemes>
+    <requiredMemes>
+      <li>Necrolatry</li>
+    </requiredMemes>
+    <modExtensions>
+      <li Class="TPRitualAttachableOutcomes.Precept_Ritual_Custom">
+        <coolDownDays>30</coolDownDays>
+      </li>
+    </modExtensions>
+  </PreceptDef>
+  <RitualPatternDef>
+    <defName>EquivalentExchange</defName>
+    <ritualBehavior>EquivalentExchange</ritualBehavior>
+    <shortDescOverride>Equivalent Exchange</shortDescOverride>
+    <descOverride>One life for another</descOverride>
+    <ritualOutcomeEffect>EquivalentExchange</ritualOutcomeEffect>
+    <nameMaker>NamerRitualEquivExchange</nameMaker>
+    <ritualOnlyForIdeoMembers>true</ritualOnlyForIdeoMembers>
+    <canStartAnytime>true</canStartAnytime>
+    <ritualObligationTargetFilter>AnyGrave</ritualObligationTargetFilter>
+    <tags>
+      <li>EquivalentExchange</li>
+    </tags>
+    <patternGroupTag>EquivalentExchange</patternGroupTag>
+  </RitualPatternDef>
+  <RitualBehaviorDef>
+    <defName>EquivalentExchange</defName>
+    <workerClass>RitualBehaviorWorker_Mutilation</workerClass>
+    <roles>
+      <li Class="MemesAndP.RitualRoleNonSlaveColonist">
+        <label>target</label>
+        <id>target</id>
+        <maxCount>1</maxCount>
+        <required>True</required>
+        <missingDesc>the person to sacrifice</missingDesc>
+        <ignoreBleeding>true</ignoreBleeding>
+        <countsAsParticipant>True</countsAsParticipant>
+      </li>
+      <li Class="RitualRoleTag">
+        <label>cutter</label>
+        <id>doer</id>
+        <precept>IdeoRole_Moralist</precept>
+        <tag>Moralist</tag>
+        <maxCount>1</maxCount>
+        <substitutable>true</substitutable>
+        <required>true</required>
+        <missingDesc>the person who performs the sacrifice</missingDesc>
+        <countsAsParticipant>True</countsAsParticipant>
+      </li>
+    </roles>
+    <stages>
+      <li>
+        <defaultDuty>Spectate</defaultDuty>
+        <essential>True</essential>
+        <endTriggers>
+          <li Class="StageEndTrigger_RolesArrived">
+            <roleIds>
+              <li>doer</li>
+              <li>target</li>
+            </roleIds>
+          </li>
+        </endTriggers>
+        <roleBehaviors>
+          <li>
+            <roleId>doer</roleId>
+            <dutyDef>ArriveToCell</dutyDef>
+            <customPositions>
+              <li Class="RitualPosition_OnInteractionCell">
+                <facing>West</facing>
+              </li>
+            </customPositions>
+          </li>
+          <li>
+            <roleId>target</roleId>
+            <dutyDef>ArriveToCell</dutyDef>
+            <customPositions>
+              <li Class="RitualPosition_OnInteractionCell">
+                <offset>(1,0,1)</offset>
+              </li>
+            </customPositions>
+          </li>
+        </roleBehaviors>
+      </li>
+      <li>
+        <defaultDuty>Spectate</defaultDuty>
+        <endTriggers>
+          <li Class="StageEndTrigger_DurationPercentage">
+            <percentage>0.5</percentage>
+          </li>
+        </endTriggers>
+        <roleBehaviors>
+          <li>
+            <roleId>doer</roleId>
+            <dutyDef>SpeakOnCellFacingSpectators</dutyDef>
+            <speakerInteraction>Speech_Sacrifice</speakerInteraction>
+            <customPositions>
+              <li Class="RitualPosition_Lectern">
+                <maxDistanceToFocus>5</maxDistanceToFocus>
+              </li>
+              <li Class="RitualPosition_OnInteractionCell">
+                <facing>West</facing>
+              </li>
+            </customPositions>
+          </li>
+          <li>
+            <roleId>target</roleId>
+            <dutyDef>Idle</dutyDef>
+          </li>
+        </roleBehaviors>
+      </li>
+      <li Class="RitualStage_InteractWithRole">
+        <targetId>target</targetId>
+        <defaultDuty>Spectate</defaultDuty>
+        <essential>True</essential>
+        <endTriggers>
+          <li Class="StageEndTrigger_PawnDead">
+            <roleId>target</roleId>
+          </li>
+        </endTriggers>
+        <roleBehaviors>
+          <li>
+            <roleId>doer</roleId>
+            <dutyDef>Sacrifice</dutyDef>
+          </li>
+          <li>
+            <roleId>target</roleId>
+            <dutyDef>Idle</dutyDef>
+          </li>
+        </roleBehaviors>
+      </li>
+      <li>
+        <defaultDuty>Spectate</defaultDuty>
+        <endTriggers>
+          <li Class="StageEndTrigger_DurationPercentage">
+            <percentage>0.5</percentage>
+          </li>
+        </endTriggers>
+        <roleBehaviors>
+          <li>
+            <roleId>doer</roleId>
+            <dutyDef>SpeakOnCellFacingSpectators</dutyDef>
+            <speakerInteraction>Speech_Sacrifice</speakerInteraction>
+            <customPositions>
+              <li Class="RitualPosition_Lectern">
+                <maxDistanceToFocus>5</maxDistanceToFocus>
+              </li>
+              <li Class="RitualPosition_OnInteractionCell">
+                <facing>West</facing>
+              </li>
+            </customPositions>
+          </li>
+        </roleBehaviors>
+      </li>
+    </stages>
+  </RitualBehaviorDef>
+  <RitualOutcomeEffectDef>
+    <defName>EquivalentExchange</defName>
+    <description>Depending on ritual quality, participants will get between -6 and +6 mood for 6 days. The pawn inside the casket will revive if the ritual is satisfying or better.</description>
+    <workerClass>TPRitualAttachableOutcomes.RitualOutcomeEffectWorker_FromQuality_TP_Custom</workerClass>
+    <allowAttachableOutcome>false</allowAttachableOutcome>
+    <comps>
+      <li Class="RitualOutcomeComp_RolePresentNotSubstituted">
+        <roleId>doer</roleId>
+        <label>Moral guide present</label>
+        <qualityOffset>0.60</qualityOffset>
+      </li>
+      <li Class="RitualOutcomeComp_ParticipantCount">
+        <label>participant count</label>
+        <curve>
+          <points>
+            <li>(1,  0.0)</li>
+            <li>(7,  0.40)</li>
+          </points>
+        </curve>
+      </li>
+    </comps>
+    <outcomeChances>
+      <li>
+        <label>Terrible</label>
+        <chance>0.03</chance>
+        <memory>TerribleEquivalentExchange</memory>
+        <description>The {0} was terrible! We've been forsaken by death.</description>
+        <positivityIndex>-2</positivityIndex>
+      </li>
+      <li>
+        <label>Bad</label>
+        <chance>0.17</chance>
+        <memory>BadEquivalentExchange</memory>
+        <description>The {0} was bad. Death isn't on our side today.</description>
+        <positivityIndex>-1</positivityIndex>
+      </li>
+      <li>
+        <label>Satisfying</label>
+        <chance>0.7</chance>
+        <memory>SatisfyingEquivalentExchange</memory>
+        <description>The {0} was satisfying. Death is on our side today.</description>
+        <positivityIndex>1</positivityIndex>
+      </li>
+      <li>
+        <label>Spectacular</label>
+        <chance>0.1</chance>
+        <memory>SpectacularEquivalentExchange</memory>
+        <description>The {0} was spectacular! Death's blessings bathe us.</description>
+        <positivityIndex>2</positivityIndex>
+      </li>
+    </outcomeChances>
+    <modExtensions>
+      <li Class="TPRitualAttachableOutcomes.RitualAttachableOutcomeEffectDef_TP_Custom">
+        <node Class="TPRitualAttachableOutcomes.RitualAttachableOutcomeEffectDef_TP_Custom_Node">
+          <li>
+            <triggerPositivityIndex>
+              <li>1</li>
+            </triggerPositivityIndex>
+            <addInnerPawn>true</addInnerPawn>
+            <applyToInnerPawn>true</applyToInnerPawn>
+            <resurrect>true</resurrect>
+            <thought>ForcefulResurrection</thought>
+          </li>
+          <li>
+            <triggerPositivityIndex>
+              <li>2</li>
+            </triggerPositivityIndex>
+            <addInnerPawn>true</addInnerPawn>
+            <applyToInnerPawn>true</applyToInnerPawn>
+            <resurrect>true</resurrect>
+          </li>
+        </node>
+      </li>
+    </modExtensions>
+  </RitualOutcomeEffectDef>
+  <ThoughtDef>
+    <defName>TerribleEquivalentExchange</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>terrible ritual</label>
+        <description>We've been forsaken by Death</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>BadEquivalentExchange</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>bad ritual</label>
+        <description>We are not in tune with Death</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>SatisfyingEquivalentExchange</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>satisfying ritual</label>
+        <description>Death is on our side.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>SpectacularEquivalentExchange</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>spectacular ritual</label>
+        <description>We've been blessed by Death!</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>ForcefulResurrection</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>resurrected</label>
+        <description>I hate this. It was much better when I was dead.</description>
+        <baseMoodEffect>-12</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <RulePackDef>
+    <defName>NamerRitualPowerFunnel</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_ritualName-&gt;[ritNoun] of [keyDeity]'s call</li>
+        <li>r_ritualName-&gt;[ritNoun] of [keyDeity]'s summoning</li>
+        <li>r_ritualName-&gt;[ritNoun] of [chosenTheme] assembly</li>
+        <li>r_ritualName-&gt;[ritNoun] of [chosenTheme]'s call</li>
+        <li>r_ritualName-&gt;[ritNoun] of [memeConcept] assembly</li>
+        <li>r_ritualName-&gt;[ritNoun] of [memeConcept]'s call</li>
+        <li>r_ritualName-&gt;[memeAdjective] [ritNoun] assembly</li>
+        <li>r_ritualName-&gt;[memeAdjective] [ritNoun]'s call</li>
+        <li>ritNoun-&gt;chosen</li>
+        <li>ritNoun-&gt;champion</li>
+        <li>ritNoun-&gt;herald</li>
+        <li>ritNoun-&gt;bringer</li>
+        <li>ritNoun-&gt;will</li>
+        <li>ritNoun-&gt;protector</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+  <PreceptDef>
+    <defName>PowerFunneling</defName>
+    <label>power funneling</label>
+    <description>A ritual in which all the participants give a portion of their powers to a target colonist, empowering them beyond human limits for an entire season.</description>
+    <issue>Ritual</issue>
+    <impact>Medium</impact>
+    <iconPath>UI/Abilities/ConversionRitual</iconPath>
+    <preceptClass>Precept_Ritual</preceptClass>
+    <ritualPatternBase>PowerFunneling</ritualPatternBase>
+    <allowDuplicates>false</allowDuplicates>
+    <countsTowardsPreceptLimit>true</countsTowardsPreceptLimit>
+    <selectionWeight>1.0</selectionWeight>
+    <displayOrderInImpact>100</displayOrderInImpact>
+    <ignoreLimitsInEditMode>false</ignoreLimitsInEditMode>
+    <receivesExpectationsQualityOffset>true</receivesExpectationsQualityOffset>
+    <canGenerateAsSpecialPrecept>false</canGenerateAsSpecialPrecept>
+    <associatedMemes>
+      <li>Altruism</li>
+    </associatedMemes>
+    <requiredMemes>
+      <li>Altruism</li>
+    </requiredMemes>
+    <modExtensions>
+      <li Class="TPRitualAttachableOutcomes.Precept_Ritual_Custom">
+        <coolDownDays>15</coolDownDays>
+      </li>
+    </modExtensions>
+  </PreceptDef>
+  <RitualPatternDef>
+    <defName>PowerFunneling</defName>
+    <ritualBehavior>PowerFunneling</ritualBehavior>
+    <ritualObligationTargetFilter>RitualSpotOrAltar</ritualObligationTargetFilter>
+    <ritualOutcomeEffect>PowerFunneling</ritualOutcomeEffect>
+    <nameMaker>NamerRitualPowerFunnel</nameMaker>
+    <shortDescOverride>Power Funneling</shortDescOverride>
+    <descOverride>Channel the power of many into one</descOverride>
+    <ritualOnlyForIdeoMembers>true</ritualOnlyForIdeoMembers>
+    <canStartAnytime>true</canStartAnytime>
+    <tags>
+      <li>PowerFunneling</li>
+    </tags>
+    <patternGroupTag>PowerFunneling</patternGroupTag>
+  </RitualPatternDef>
+  <RitualBehaviorDef>
+    <defName>PowerFunneling</defName>
+    <roles>
+      <li Class="MemesAndP.RitualRoleNonSlaveColonist">
+        <label>target</label>
+        <id>target</id>
+        <maxCount>1</maxCount>
+        <required>True</required>
+        <missingDesc>the bearer of power</missingDesc>
+        <countsAsParticipant>False</countsAsParticipant>
+      </li>
+    </roles>
+    <stages>
+      <li>
+        <defaultDuty>Spectate</defaultDuty>
+        <essential>True</essential>
+        <endTriggers>
+          <li Class="StageEndTrigger_RolesArrived">
+            <roleIds>
+              <li>target</li>
+            </roleIds>
+          </li>
+        </endTriggers>
+        <roleBehaviors>
+          <li>
+            <roleId>target</roleId>
+            <dutyDef>ArriveToCell</dutyDef>
+            <customPositions>
+              <li Class="RitualPosition_OnInteractionCell">
+                <offset>(0,0,0)</offset>
+              </li>
+            </customPositions>
+          </li>
+        </roleBehaviors>
+      </li>
+      <li>
+        <defaultDuty>Spectate</defaultDuty>
+        <endTriggers>
+          <li Class="StageEndTrigger_DurationPercentage">
+            <percentage>1</percentage>
+          </li>
+        </endTriggers>
+        <roleBehaviors>
+          <li>
+            <roleId>target</roleId>
+            <dutyDef>LayDownAwake</dutyDef>
+          </li>
+        </roleBehaviors>
+      </li>
+    </stages>
+  </RitualBehaviorDef>
+  <RitualOutcomeEffectDef>
+    <defName>PowerFunneling</defName>
+    <description>Depending on ritual quality, participants will get between -3 and +6 mood for 6 days. The selected colonist will also get a buff of varying degree (depends on quality and chance) for 15 days</description>
+    <workerClass>TPRitualAttachableOutcomes.RitualOutcomeEffectWorker_FromQuality_TP_Custom</workerClass>
+    <allowAttachableOutcome>false</allowAttachableOutcome>
+    <comps>
+      <li Class="RitualOutcomeComp_ParticipantCount">
+        <label>participant count</label>
+        <curve>
+          <points>
+            <li>(1,  0.1)</li>
+            <li>(7,  1.00)</li>
+          </points>
+        </curve>
+      </li>
+    </comps>
+    <outcomeChances>
+      <li>
+        <label>Terrible</label>
+        <chance>0.00</chance>
+        <memory>TerriblePowerFunneling</memory>
+        <description>The {0} was terrible!.</description>
+        <positivityIndex>-2</positivityIndex>
+      </li>
+      <li>
+        <label>Bad</label>
+        <chance>0.20</chance>
+        <memory>BadPowerFunneling</memory>
+        <description>The {0} was bad, but our champion will still be of help.</description>
+        <positivityIndex>-1</positivityIndex>
+      </li>
+      <li>
+        <label>Satisfying</label>
+        <chance>0.7</chance>
+        <memory>SatisfyingPowerFunneling</memory>
+        <description>The {0} was satisfying. Our champion will keep us safe.</description>
+        <positivityIndex>1</positivityIndex>
+      </li>
+      <li>
+        <label>Spectacular</label>
+        <chance>0.1</chance>
+        <memory>SpectacularPowerFunneling</memory>
+        <description>The {0} was spectacular! Our champion is unstoppable.</description>
+        <positivityIndex>2</positivityIndex>
+      </li>
+    </outcomeChances>
+    <modExtensions>
+      <li Class="TPRitualAttachableOutcomes.RitualAttachableOutcomeEffectDef_TP_Custom">
+        <node Class="TPRitualAttachableOutcomes.RitualAttachableOutcomeEffectDef_TP_Custom_Node">
+          <li>
+            <appliesTo>
+              <li>target</li>
+            </appliesTo>
+            <triggerPositivityIndex>
+              <li>-2</li>
+              <li>-1</li>
+            </triggerPositivityIndex>
+            <hediffToAdd>
+              <li>PowerFunnelLow</li>
+            </hediffToAdd>
+          </li>
+          <li>
+            <appliesTo>
+              <li>target</li>
+            </appliesTo>
+            <triggerPositivityIndex>
+              <li>1</li>
+            </triggerPositivityIndex>
+            <hediffToAdd>
+              <li>PowerFunnelHigh</li>
+            </hediffToAdd>
+          </li>
+          <li>
+            <appliesTo>
+              <li>target</li>
+            </appliesTo>
+            <triggerPositivityIndex>
+              <li>2</li>
+            </triggerPositivityIndex>
+            <hediffToAdd>
+              <li>PowerFunnelExtreme</li>
+            </hediffToAdd>
+          </li>
+        </node>
+      </li>
+    </modExtensions>
+  </RitualOutcomeEffectDef>
+  <HediffDef>
+    <defName>PowerFunnelExtreme</defName>
+    <label>Funneled power</label>
+    <description>Power flows through my veins</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>900000</disappearsAfterTicks>
+        <showRemainingTime>True</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath" />
+    </comps>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>6</ShootingAccuracyPawn>
+          <WorkSpeedGlobal>0.5</WorkSpeedGlobal>
+          <MeleeDodgeChance>10</MeleeDodgeChance>
+        </statOffsets>
+        <restFallFactor>0.20</restFallFactor>
+        <painFactor>0.2</painFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.30</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>0.30</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.30</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <defaultLabelColor>(0.3, 1, 0.3)</defaultLabelColor>
+  </HediffDef>
+  <HediffDef>
+    <defName>PowerFunnelHigh</defName>
+    <label>Funneled power</label>
+    <description>Power flows through my veins</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>900000</disappearsAfterTicks>
+        <showRemainingTime>True</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath" />
+    </comps>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>5</ShootingAccuracyPawn>
+          <WorkSpeedGlobal>0.3</WorkSpeedGlobal>
+          <MeleeDodgeChance>5</MeleeDodgeChance>
+        </statOffsets>
+        <restFallFactor>0.33</restFallFactor>
+        <painFactor>0.5</painFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.20</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>0.20</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.20</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <defaultLabelColor>(0.3, 1, 0.3)</defaultLabelColor>
+  </HediffDef>
+  <HediffDef>
+    <defName>PowerFunnelLow</defName>
+    <label>Funneled power</label>
+    <description>Power flows through my veins</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>900000</disappearsAfterTicks>
+        <showRemainingTime>True</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath" />
+    </comps>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>3</ShootingAccuracyPawn>
+          <WorkSpeedGlobal>0.15</WorkSpeedGlobal>
+          <MeleeDodgeChance>3</MeleeDodgeChance>
+        </statOffsets>
+        <restFallFactor>0.55</restFallFactor>
+        <painFactor>0.75</painFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.10</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>0.10</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.10</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <defaultLabelColor>(0.3, 1, 0.3)</defaultLabelColor>
+  </HediffDef>
+  <ThoughtDef>
+    <defName>PowerFunnelExtreme</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>PowerFunnelExtreme</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>power funneled</label>
+        <description>I feel the power of everyone flowing through my veins. There's nothing I can't overcome with this much power!</description>
+        <baseMoodEffect>30</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>PowerFunnelHigh</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>PowerFunnelHigh</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>power funneled</label>
+        <description>I feel the power of everyone flowing through my veins. Our people will be safe as long as I'm here.</description>
+        <baseMoodEffect>20</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>PowerFunnelLow</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>PowerFunnelLow</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>power funneled</label>
+        <description>I feel the power of everyone flowing through my veins, bur I feel I could be even stronger.</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- Thoughts for ritual -->
+  <ThoughtDef>
+    <defName>TerriblePowerFunneling</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>terrible ritual</label>
+        <description>Our protector's strength seems lacking. We feel unprotected.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>BadPowerFunneling</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>bad ritual</label>
+        <description>Our protector's strength seems a little lacking. We feel unprotected.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>SatisfyingPowerFunneling</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>satisfying ritual</label>
+        <description>Our champion is strong. We're gonna be safe for a while.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>SpectacularPowerFunneling</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>spectacular ritual</label>
+        <description>Our champion is godlike. We cannot fall!</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

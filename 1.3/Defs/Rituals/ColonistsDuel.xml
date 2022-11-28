@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <RitualBehaviorDef>
+    <defName>ColonistDuel</defName>
+    <workerClass>RitualBehaviorWorker_Duel</workerClass>
+    <roles>
+      <li Class="RitualRoleTag">
+        <label>speaker</label>
+        <tag>Leader</tag>
+        <id>leader</id>
+        <precept>IdeoRole_Leader</precept>
+        <required>True</required>
+        <substitutable>True</substitutable>
+        <maxCount>1</maxCount>
+        <countsAsParticipant>False</countsAsParticipant>
+      </li>
+      <li Class="MemesAndP.RitualRoleColonistGladiator">
+        <label>duelist</label>
+        <categoryLabel>duelists</categoryLabel>
+        <missingDesc>colonists/slaves (duelists)</missingDesc>
+        <id>duelist1</id>
+        <mergeId>duelist</mergeId>
+        <mustBeCapableToFight>true</mustBeCapableToFight>
+        <required>True</required>
+        <maxCount>1</maxCount>
+        <ignoreBleeding>true</ignoreBleeding>
+        <countsAsParticipant>False</countsAsParticipant>
+      </li>
+      <li Class="MemesAndP.RitualRoleColonistGladiator">
+        <label>duelist</label>
+        <categoryLabel>duelists</categoryLabel>
+        <missingDesc>colonists/slaves (duelists)</missingDesc>
+        <id>duelist2</id>
+        <mergeId>duelist</mergeId>
+        <required>True</required>
+        <mustBeCapableToFight>true</mustBeCapableToFight>
+        <maxCount>1</maxCount>
+        <ignoreBleeding>true</ignoreBleeding>
+        <countsAsParticipant>False</countsAsParticipant>
+      </li>
+    </roles>
+    <spectatorsLabel>Spectators</spectatorsLabel>
+    <spectatorGerund>participate</spectatorGerund>
+    <stages>
+      <!-- Duelists drop weapons -->
+      <li>
+        <defaultDuty>SpectateCircle</defaultDuty>
+        <spectateDistanceOverride>5~7</spectateDistanceOverride>
+        <endTriggers>
+          <li Class="StageEndTrigger_RolesUnarmed">
+            <roleIds>
+              <li>duelist1</li>
+              <li>duelist2</li>
+            </roleIds>
+          </li>
+        </endTriggers>
+        <roleBehaviors>
+          <li>
+            <roleId>duelist1</roleId>
+            <dutyDef>DropWeapon</dutyDef>
+          </li>
+          <li>
+            <roleId>duelist2</roleId>
+            <dutyDef>DropWeapon</dutyDef>
+          </li>
+        </roleBehaviors>
+      </li>
+      <!-- People gather up -->
+      <li>
+        <defaultDuty>SpectateCircle</defaultDuty>
+        <spectateDistanceOverride>5~7</spectateDistanceOverride>
+        <endTriggers>
+          <li Class="StageEndTrigger_RolesArrived">
+            <roleIds>
+              <li>leader</li>
+              <li>duelist1</li>
+              <li>duelist2</li>
+            </roleIds>
+          </li>
+        </endTriggers>
+        <roleBehaviors>
+          <li>
+            <roleId>leader</roleId>
+            <dutyDef>ArriveToCell</dutyDef>
+            <customPositions>
+              <li Class="RitualPosition_InCircle">
+                <preferredRotation>North</preferredRotation>
+                <distRange>3~3</distRange>
+              </li>
+            </customPositions>
+          </li>
+          <li>
+            <roleId>duelist1</roleId>
+            <dutyDef>ArriveToCell</dutyDef>
+            <customPositions>
+              <li Class="RitualPosition_InCircle">
+                <preferredRotation>West</preferredRotation>
+                <distRange>2~2</distRange>
+              </li>
+            </customPositions>
+          </li>
+          <li>
+            <roleId>duelist2</roleId>
+            <dutyDef>ArriveToCell</dutyDef>
+            <customPositions>
+              <li Class="RitualPosition_InCircle">
+                <preferredRotation>East</preferredRotation>
+                <distRange>2~2</distRange>
+              </li>
+            </customPositions>
+          </li>
+        </roleBehaviors>
+      </li>
+      <li>
+        <defaultDuty>SpectateCircle</defaultDuty>
+        <spectateDistanceOverride>5~7</spectateDistanceOverride>
+        <ignoreDurationToFinishAfterStage>true</ignoreDurationToFinishAfterStage>
+        <postAction Class="RitualStageAction_SoundOneshotOnTarget">
+          <sound>GladiatorDuel_Start</sound>
+        </postAction>
+        <endTriggers>
+          <li Class="StageEndTrigger_DurationPercentage">
+            <percentage>0.33</percentage>
+          </li>
+        </endTriggers>
+        <roleBehaviors>
+          <li>
+            <roleId>leader</roleId>
+            <dutyDef>SpeakOnCell</dutyDef>
+            <speakerInteraction>Speech_Duel</speakerInteraction>
+            <customPositions>
+              <li Class="RitualPosition_InCircle">
+                <preferredRotation>North</preferredRotation>
+                <distRange>3~3</distRange>
+              </li>
+            </customPositions>
+          </li>
+          <li>
+            <roleId>duelist2</roleId>
+            <dutyDef>Idle</dutyDef>
+          </li>
+          <li>
+            <roleId>duelist1</roleId>
+            <dutyDef>Idle</dutyDef>
+          </li>
+        </roleBehaviors>
+      </li>
+      <!-- Fight -->
+      <li>
+        <defaultDuty>SpectateCircle</defaultDuty>
+        <spectateDistanceOverride>5~7</spectateDistanceOverride>
+        <visualEffectDef>Duel</visualEffectDef>
+        <endTriggers>
+          <li Class="StageEndTrigger_DurationPercentage">
+            <percentage>1</percentage>
+          </li>
+          <li Class="StageEndTrigger_DuelEnded">
+            <roleIds>
+              <li>duelist1</li>
+              <li>duelist2</li>
+            </roleIds>
+          </li>
+        </endTriggers>
+        <roleBehaviors>
+          <li>
+            <roleId>leader</roleId>
+            <dutyDef>Idle</dutyDef>
+            <customPositions>
+              <li Class="RitualPosition_InCircle">
+                <preferredRotation>North</preferredRotation>
+                <distRange>3~3</distRange>
+              </li>
+            </customPositions>
+          </li>
+          <li>
+            <roleId>duelist2</roleId>
+            <dutyDef>Duel</dutyDef>
+          </li>
+          <li>
+            <roleId>duelist1</roleId>
+            <dutyDef>Duel</dutyDef>
+          </li>
+        </roleBehaviors>
+      </li>
+      <!-- Duelists drop weapons -->
+      <li>
+        <defaultDuty>SpectateCircle</defaultDuty>
+        <spectateDistanceOverride>5~7</spectateDistanceOverride>
+        <endTriggers>
+          <li Class="StageEndTrigger_RolesUnarmed">
+            <roleIds>
+              <li>duelist1</li>
+              <li>duelist2</li>
+            </roleIds>
+          </li>
+        </endTriggers>
+        <roleBehaviors>
+          <li>
+            <roleId>duelist1</roleId>
+            <dutyDef>DropWeapon</dutyDef>
+          </li>
+          <li>
+            <roleId>duelist2</roleId>
+            <dutyDef>DropWeapon</dutyDef>
+          </li>
+        </roleBehaviors>
+      </li>
+      <!-- Wait some time -->
+      <li>
+        <defaultDuty>SpectateCircle</defaultDuty>
+        <spectateDistanceOverride>5~7</spectateDistanceOverride>
+        <endTriggers>
+          <li Class="StageEndTrigger_DurationPercentage">
+            <percentage>0.05</percentage>
+          </li>
+        </endTriggers>
+        <roleBehaviors>
+          <li>
+            <roleId>duelist1</roleId>
+            <dutyDef>Idle</dutyDef>
+          </li>
+          <li>
+            <roleId>duelist2</roleId>
+            <dutyDef>Idle</dutyDef>
+          </li>
+        </roleBehaviors>
+      </li>
+    </stages>
+  </RitualBehaviorDef>
+  <PreceptDef>
+    <defName>GladiatorDuelColonist</defName>
+    <label>colonist duel</label>
+    <tipLabelOverride>Colonist duel</tipLabelOverride>
+    <description>An honorable duel between colonists and/or slaves. The organizer will give a speech to excite the crowd, then the duelists will fight until one of them falls or time runs out. If weapons are in the arena, the duelists will pick up and use them.</description>
+    <issue>Ritual</issue>
+    <impact>Medium</impact>
+    <preceptClass>Precept_Ritual</preceptClass>
+    <ritualPatternBase>ColonistDuel</ritualPatternBase>
+    <iconPath>UI/Icons/Rituals/GladiatorDuel</iconPath>
+    <visible>true</visible>
+    <countsTowardsPreceptLimit>true</countsTowardsPreceptLimit>
+    <selectionWeight>0</selectionWeight>
+    <requiredMemes>
+      <li>PainIsVirtue</li>
+      <li>Cannibal</li>
+      <li>Supremacist</li>
+      <li>Raider</li>
+      <li>Necrolatry</li>
+    </requiredMemes>
+    <modExtensions>
+      <li Class="TPRitualAttachableOutcomes.Precept_Ritual_Custom">
+        <coolDownDays>1</coolDownDays>
+      </li>
+    </modExtensions>
+  </PreceptDef>
+  <RitualPatternDef>
+    <defName>ColonistDuel</defName>
+    <canStartAnytime>true</canStartAnytime>
+    <ritualObligationTargetFilter>AnyRitualSpot</ritualObligationTargetFilter>
+    <ritualBehavior>ColonistDuel</ritualBehavior>
+    <alwaysStartAnytime>true</alwaysStartAnytime>
+    <nameMaker>NamerRitualGladiatorDuel</nameMaker>
+    <ritualOnlyForIdeoMembers>false</ritualOnlyForIdeoMembers>
+    <ritualOutcomeEffect>ColonistDuel</ritualOutcomeEffect>
+    <tags Inherit="False" />
+    <playsIdeoMusic>false</playsIdeoMusic>
+  </RitualPatternDef>
+  <RitualOutcomeEffectDef>
+    <defName>ColonistDuel</defName>
+    <description>Depending on ritual quality, participants will get between -6 and 6 mood for 6 days.</description>
+    <workerClass>RitualOutcomeEffectWorker_Duel</workerClass>
+    <extraPredictedOutcomeDescriptions>
+      <li>Duelists and viewers will gain melee combat experience.</li>
+      <li>Spectators will gain a mood boost and fill their recreation bars.</li>
+    </extraPredictedOutcomeDescriptions>
+    <allowAttachableOutcome>false</allowAttachableOutcome>
+    <comps>
+      <li Class="RitualOutcomeComp_ParticipantCount">
+        <label>participant count</label>
+        <curve>
+          <points>
+            <li>(1,  0.0)</li>
+            <li>(5,  0.2)</li>
+            <li>(10, 0.4)</li>
+          </points>
+        </curve>
+      </li>
+      <li Class="RitualOutcomeComp_RolePresentNotSubstituted">
+        <roleId>leader</roleId>
+        <label>leader present</label>
+        <qualityOffset>0.3</qualityOffset>
+      </li>
+      <li Class="RitualOutcomeComp_DuelistDied">
+        <label>duelist dies</label>
+        <qualityOffset>1</qualityOffset>
+      </li>
+      <li Class="RitualOutcomeComp_WeaponUsed">
+        <label>weapon used</label>
+        <qualityOffset>0.3</qualityOffset>
+      </li>
+    </comps>
+    <outcomeChances>
+      <li>
+        <chance>0.05</chance>
+        <label>Terrible</label>
+        <memory>TerribleColonistDuel</memory>
+        <roleIdsNotGainingMemory>
+          <li>duelist</li>
+        </roleIdsNotGainingMemory>
+        <description>The duel was terrible! The fighters bumbled around, ineptly avoiding each other in a extended display of cowardice and weakness. Watching it just made people sad.</description>
+        <positivityIndex>-2</positivityIndex>
+      </li>
+      <li>
+        <chance>0.15</chance>
+        <label>Boring</label>
+        <memory>BoringColonistDuel</memory>
+        <roleIdsNotGainingMemory>
+          <li>duelist</li>
+        </roleIdsNotGainingMemory>
+        <description>The duel was boring. The fighters wouldn't commit, so there were no exciting moments.</description>
+        <positivityIndex>-1</positivityIndex>
+      </li>
+      <li>
+        <chance>0.6</chance>
+        <label>Good</label>
+        <memory>GoodColonistDuel</memory>
+        <roleIdsNotGainingMemory>
+          <li>duelist</li>
+        </roleIdsNotGainingMemory>
+        <description>The duel was good. The fighters went for blood and showed real heart.</description>
+        <positivityIndex>1</positivityIndex>
+      </li>
+      <li>
+        <chance>0.2</chance>
+        <label>Unforgettable</label>
+        <memory>UnforgettableColonistDuel</memory>
+        <roleIdsNotGainingMemory>
+          <li>duelist</li>
+        </roleIdsNotGainingMemory>
+        <description>The duel was unforgettable! Both fighters gave all they had.</description>
+        <positivityIndex>2</positivityIndex>
+      </li>
+    </outcomeChances>
+  </RitualOutcomeEffectDef>
+  <!-- Thoughts for ritual -->
+  <ThoughtDef>
+    <defName>TerribleColonistDuel</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>terrible duel</label>
+        <description>The last duel was terrible. I can't remember seeing worse.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>BoringColonistDuel</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>boring duel</label>
+        <description>The least duel was mediocre at best. I've seen grannys fight better.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>GoodColonistDuel</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>satisfying ritual</label>
+        <description>Our champion is strong. We're gonna be safe for a while.</description>
+        <baseMoodEffect>13</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>UnforgettableColonistDuel</defName>
+    <thoughtClass>Thought_AttendedRitual</thoughtClass>
+    <durationDays>6</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>spectacular ritual</label>
+        <description>Our champion is godlike. We cannot fall!</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>
