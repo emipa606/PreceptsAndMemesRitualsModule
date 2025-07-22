@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: target -->
+  <EquivalentExchange.roles.0.label>target</EquivalentExchange.roles.0.label>
+  <!-- EN: the person to sacrifice -->
+  <EquivalentExchange.roles.0.missingDesc>the person to sacrifice</EquivalentExchange.roles.0.missingDesc>
+  <!-- EN: cutter -->
+  <EquivalentExchange.roles.1.label>cutter</EquivalentExchange.roles.1.label>
+  <!-- EN: the person who performs the sacrifice -->
+  <EquivalentExchange.roles.1.missingDesc>the person who performs the sacrifice</EquivalentExchange.roles.1.missingDesc>
+</LanguageData>

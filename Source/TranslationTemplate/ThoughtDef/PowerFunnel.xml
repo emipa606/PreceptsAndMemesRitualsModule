@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: bad ritual -->
+  <BadPowerFunneling.stages.bad_ritual.label>bad ritual</BadPowerFunneling.stages.bad_ritual.label>
+  <!-- EN: Our protector's strength seems a little lacking. We feel unprotected. -->
+  <BadPowerFunneling.stages.bad_ritual.description>Our protector's strength seems a little lacking. We feel unprotected.</BadPowerFunneling.stages.bad_ritual.description>
+  <!-- EN: power funneled -->
+  <PowerFunnelExtreme.stages.power_funneled.label>power funneled</PowerFunnelExtreme.stages.power_funneled.label>
+  <!-- EN: I feel the power of everyone flowing through my veins. There's nothing I can't overcome with this much power! -->
+  <PowerFunnelExtreme.stages.power_funneled.description>I feel the power of everyone flowing through my veins. There's nothing I can't overcome with this much power!</PowerFunnelExtreme.stages.power_funneled.description>
+  <!-- EN: power funneled -->
+  <PowerFunnelHigh.stages.power_funneled.label>power funneled</PowerFunnelHigh.stages.power_funneled.label>
+  <!-- EN: I feel the power of everyone flowing through my veins. Our people will be safe as long as I'm here. -->
+  <PowerFunnelHigh.stages.power_funneled.description>I feel the power of everyone flowing through my veins. Our people will be safe as long as I'm here.</PowerFunnelHigh.stages.power_funneled.description>
+  <!-- EN: power funneled -->
+  <PowerFunnelLow.stages.power_funneled.label>power funneled</PowerFunnelLow.stages.power_funneled.label>
+  <!-- EN: I feel the power of everyone flowing through my veins, bur I feel I could be even stronger. -->
+  <PowerFunnelLow.stages.power_funneled.description>I feel the power of everyone flowing through my veins, bur I feel I could be even stronger.</PowerFunnelLow.stages.power_funneled.description>
+  <!-- EN: satisfying ritual -->
+  <SatisfyingPowerFunneling.stages.satisfying_ritual.label>satisfying ritual</SatisfyingPowerFunneling.stages.satisfying_ritual.label>
+  <!-- EN: Our champion is strong. We're gonna be safe for a while. -->
+  <SatisfyingPowerFunneling.stages.satisfying_ritual.description>Our champion is strong. We're gonna be safe for a while.</SatisfyingPowerFunneling.stages.satisfying_ritual.description>
+  <!-- EN: spectacular ritual -->
+  <SpectacularPowerFunneling.stages.spectacular_ritual.label>spectacular ritual</SpectacularPowerFunneling.stages.spectacular_ritual.label>
+  <!-- EN: Our champion is godlike. We cannot fall! -->
+  <SpectacularPowerFunneling.stages.spectacular_ritual.description>Our champion is godlike. We cannot fall!</SpectacularPowerFunneling.stages.spectacular_ritual.description>
+  <!-- EN: terrible ritual -->
+  <TerriblePowerFunneling.stages.terrible_ritual.label>terrible ritual</TerriblePowerFunneling.stages.terrible_ritual.label>
+  <!-- EN: Our protector's strength seems lacking. We feel unprotected. -->
+  <TerriblePowerFunneling.stages.terrible_ritual.description>Our protector's strength seems lacking. We feel unprotected.</TerriblePowerFunneling.stages.terrible_ritual.description>
+</LanguageData>

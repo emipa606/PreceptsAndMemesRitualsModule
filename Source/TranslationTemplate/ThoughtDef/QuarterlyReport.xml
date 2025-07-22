@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: bad ritual -->
+  <BadQuarterlyReport.stages.bad_ritual.label>bad ritual</BadQuarterlyReport.stages.bad_ritual.label>
+  <!-- EN: Business is doing anything but fine. -->
+  <BadQuarterlyReport.stages.bad_ritual.description>Business is doing anything but fine.</BadQuarterlyReport.stages.bad_ritual.description>
+  <!-- EN: satisfying ritual -->
+  <SatisfyingQuarterlyReport.stages.satisfying_ritual.label>satisfying ritual</SatisfyingQuarterlyReport.stages.satisfying_ritual.label>
+  <!-- EN: Our profits are steadily growing. -->
+  <SatisfyingQuarterlyReport.stages.satisfying_ritual.description>Our profits are steadily growing.</SatisfyingQuarterlyReport.stages.satisfying_ritual.description>
+  <!-- EN: spectacular ritual -->
+  <SpectacularQuarterlyReport.stages.spectacular_ritual.label>spectacular ritual</SpectacularQuarterlyReport.stages.spectacular_ritual.label>
+  <!-- EN: We'll be swiming in silver soon enough -->
+  <SpectacularQuarterlyReport.stages.spectacular_ritual.description>We'll be swiming in silver soon enough</SpectacularQuarterlyReport.stages.spectacular_ritual.description>
+  <!-- EN: terrible ritual -->
+  <TerribleQuarterlyReport.stages.terrible_ritual.label>terrible ritual</TerribleQuarterlyReport.stages.terrible_ritual.label>
+  <!-- EN: Profits are plumeting... -->
+  <TerribleQuarterlyReport.stages.terrible_ritual.description>Profits are plumeting...</TerribleQuarterlyReport.stages.terrible_ritual.description>
+</LanguageData>

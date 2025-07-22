@@ -163,8 +163,8 @@
     </outcomeChances>
     <modExtensions>
       <li Class="TPRitualAttachableOutcomes.RitualAttachableOutcomeEffectDef_TP_Custom">
-        <node Class="TPRitualAttachableOutcomes.RitualAttachableOutcomeEffectDef_TP_Custom_Node">
-          <li>
+        <node>
+          <li Class="TPRitualAttachableOutcomes.RitualAttachableOutcomeEffectDef_TP_Custom_Node">
             <appliesTo>
               <li>target</li>
             </appliesTo>
@@ -176,7 +176,7 @@
               <li>PowerFunnelLow</li>
             </hediffToAdd>
           </li>
-          <li>
+          <li Class="TPRitualAttachableOutcomes.RitualAttachableOutcomeEffectDef_TP_Custom_Node">
             <appliesTo>
               <li>target</li>
             </appliesTo>
@@ -187,7 +187,7 @@
               <li>PowerFunnelHigh</li>
             </hediffToAdd>
           </li>
-          <li>
+          <li Class="TPRitualAttachableOutcomes.RitualAttachableOutcomeEffectDef_TP_Custom_Node">
             <appliesTo>
               <li>target</li>
             </appliesTo>

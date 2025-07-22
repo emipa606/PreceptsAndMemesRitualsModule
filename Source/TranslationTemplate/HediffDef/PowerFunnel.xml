@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Funneled power -->
+  <PowerFunnelExtreme.label>Funneled power</PowerFunnelExtreme.label>
+  <!-- EN: Power flows through my veins -->
+  <PowerFunnelExtreme.description>Power flows through my veins</PowerFunnelExtreme.description>
+  <!-- EN: Funneled power -->
+  <PowerFunnelHigh.label>Funneled power</PowerFunnelHigh.label>
+  <!-- EN: Power flows through my veins -->
+  <PowerFunnelHigh.description>Power flows through my veins</PowerFunnelHigh.description>
+  <!-- EN: Funneled power -->
+  <PowerFunnelLow.label>Funneled power</PowerFunnelLow.label>
+  <!-- EN: Power flows through my veins -->
+  <PowerFunnelLow.description>Power flows through my veins</PowerFunnelLow.description>
+</LanguageData>

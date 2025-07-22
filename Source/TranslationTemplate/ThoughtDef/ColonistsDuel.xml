@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: boring duel -->
+  <BoringColonistDuel.stages.boring_duel.label>boring duel</BoringColonistDuel.stages.boring_duel.label>
+  <!-- EN: The least duel was mediocre at best. I've seen grannys fight better. -->
+  <BoringColonistDuel.stages.boring_duel.description>The least duel was mediocre at best. I've seen grannys fight better.</BoringColonistDuel.stages.boring_duel.description>
+  <!-- EN: satisfying ritual -->
+  <GoodColonistDuel.stages.satisfying_ritual.label>satisfying ritual</GoodColonistDuel.stages.satisfying_ritual.label>
+  <!-- EN: Our champion is strong. We're gonna be safe for a while. -->
+  <GoodColonistDuel.stages.satisfying_ritual.description>Our champion is strong. We're gonna be safe for a while.</GoodColonistDuel.stages.satisfying_ritual.description>
+  <!-- EN: terrible duel -->
+  <TerribleColonistDuel.stages.terrible_duel.label>terrible duel</TerribleColonistDuel.stages.terrible_duel.label>
+  <!-- EN: The last duel was terrible. I can't remember seeing worse. -->
+  <TerribleColonistDuel.stages.terrible_duel.description>The last duel was terrible. I can't remember seeing worse.</TerribleColonistDuel.stages.terrible_duel.description>
+  <!-- EN: spectacular ritual -->
+  <UnforgettableColonistDuel.stages.spectacular_ritual.label>spectacular ritual</UnforgettableColonistDuel.stages.spectacular_ritual.label>
+  <!-- EN: Our champion is godlike. We cannot fall! -->
+  <UnforgettableColonistDuel.stages.spectacular_ritual.description>Our champion is godlike. We cannot fall!</UnforgettableColonistDuel.stages.spectacular_ritual.description>
+</LanguageData>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Depending on ritual quality, participants will get between -6 and +6 mood for {MOODDAYS} days. -->
+  <QuarterlyReport.description>Depending on ritual quality, participants will get between -6 and +6 mood for {MOODDAYS} days.</QuarterlyReport.description>
+  <!-- EN: leader present -->
+  <QuarterlyReport.comps.0.label>leader present</QuarterlyReport.comps.0.label>
+  <!-- EN: participant count -->
+  <QuarterlyReport.comps.1.label>participant count</QuarterlyReport.comps.1.label>
+  <!-- EN: Terrible -->
+  <QuarterlyReport.outcomeChances.0.label>Terrible</QuarterlyReport.outcomeChances.0.label>
+  <!-- EN: The {0} was terrible! Our profits are plumeting! -->
+  <QuarterlyReport.outcomeChances.0.description>The {0} was terrible! Our profits are plumeting!</QuarterlyReport.outcomeChances.0.description>
+  <!-- EN: Bad -->
+  <QuarterlyReport.outcomeChances.1.label>Bad</QuarterlyReport.outcomeChances.1.label>
+  <!-- EN: The {0} was bad. The profits this season are surely going down. -->
+  <QuarterlyReport.outcomeChances.1.description>The {0} was bad. The profits this season are surely going down.</QuarterlyReport.outcomeChances.1.description>
+  <!-- EN: Satisfying -->
+  <QuarterlyReport.outcomeChances.2.label>Satisfying</QuarterlyReport.outcomeChances.2.label>
+  <!-- EN: The {0} was satisfying. We're sure to make a profit this quarter. -->
+  <QuarterlyReport.outcomeChances.2.description>The {0} was satisfying. We're sure to make a profit this quarter.</QuarterlyReport.outcomeChances.2.description>
+  <!-- EN: Spectacular -->
+  <QuarterlyReport.outcomeChances.3.label>Spectacular</QuarterlyReport.outcomeChances.3.label>
+  <!-- EN: The {0} was spectacular! We'll soon be sitting at the top if things keep going like this. -->
+  <QuarterlyReport.outcomeChances.3.description>The {0} was spectacular! We'll soon be sitting at the top if things keep going like this.</QuarterlyReport.outcomeChances.3.description>
+</LanguageData>

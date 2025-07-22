@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Depending on ritual quality, participants will get between -3 and +6 mood for 6 days. The selected colonist will also get a buff of varying degree (depends on quality and chance) for 15 days -->
+  <PowerFunneling.description>Depending on ritual quality, participants will get between -3 and +6 mood for 6 days. The selected colonist will also get a buff of varying degree (depends on quality and chance) for 15 days</PowerFunneling.description>
+  <!-- EN: participant count -->
+  <PowerFunneling.comps.0.label>participant count</PowerFunneling.comps.0.label>
+  <!-- EN: Terrible -->
+  <PowerFunneling.outcomeChances.0.label>Terrible</PowerFunneling.outcomeChances.0.label>
+  <!-- EN: The {0} was terrible!. -->
+  <PowerFunneling.outcomeChances.0.description>The {0} was terrible!.</PowerFunneling.outcomeChances.0.description>
+  <!-- EN: Bad -->
+  <PowerFunneling.outcomeChances.1.label>Bad</PowerFunneling.outcomeChances.1.label>
+  <!-- EN: The {0} was bad, but our champion will still be of help. -->
+  <PowerFunneling.outcomeChances.1.description>The {0} was bad, but our champion will still be of help.</PowerFunneling.outcomeChances.1.description>
+  <!-- EN: Satisfying -->
+  <PowerFunneling.outcomeChances.2.label>Satisfying</PowerFunneling.outcomeChances.2.label>
+  <!-- EN: The {0} was satisfying. Our champion will keep us safe. -->
+  <PowerFunneling.outcomeChances.2.description>The {0} was satisfying. Our champion will keep us safe.</PowerFunneling.outcomeChances.2.description>
+  <!-- EN: Spectacular -->
+  <PowerFunneling.outcomeChances.3.label>Spectacular</PowerFunneling.outcomeChances.3.label>
+  <!-- EN: The {0} was spectacular! Our champion is unstoppable. -->
+  <PowerFunneling.outcomeChances.3.description>The {0} was spectacular! Our champion is unstoppable.</PowerFunneling.outcomeChances.3.description>
+</LanguageData>

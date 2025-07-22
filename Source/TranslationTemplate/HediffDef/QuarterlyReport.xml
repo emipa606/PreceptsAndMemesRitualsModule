@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Impaired trade prices -->
+  <TradePriceDown.label>Impaired trade prices</TradePriceDown.label>
+  <!-- EN: Uninspired to do trade. -->
+  <TradePriceDown.description>Uninspired to do trade.</TradePriceDown.description>
+  <!-- EN: Improved trade prices -->
+  <TradePriceUp.label>Improved trade prices</TradePriceUp.label>
+  <!-- EN: Inspired to do trade. -->
+  <TradePriceUp.description>Inspired to do trade.</TradePriceUp.description>
+</LanguageData>

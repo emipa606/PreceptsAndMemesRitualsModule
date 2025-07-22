@@ -243,8 +243,8 @@
     </outcomeChances>
     <modExtensions>
       <li Class="TPRitualAttachableOutcomes.RitualAttachableOutcomeEffectDef_TP_Custom">
-        <node Class="TPRitualAttachableOutcomes.RitualAttachableOutcomeEffectDef_TP_Custom_Node">
-          <li>
+        <node>
+          <li Class="TPRitualAttachableOutcomes.RitualAttachableOutcomeEffectDef_TP_Custom_Node">
             <triggerPositivityIndex>
               <li>1</li>
             </triggerPositivityIndex>
@@ -253,7 +253,7 @@
             <resurrect>true</resurrect>
             <thought>ForcefulResurrection</thought>
           </li>
-          <li>
+          <li Class="TPRitualAttachableOutcomes.RitualAttachableOutcomeEffectDef_TP_Custom_Node">
             <triggerPositivityIndex>
               <li>2</li>
             </triggerPositivityIndex>

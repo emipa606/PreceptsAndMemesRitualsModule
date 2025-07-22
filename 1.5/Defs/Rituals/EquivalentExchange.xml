@@ -1,17 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <RulePackDef>
     <defName>NamerRitualEquivExchange</defName>
     <rulePack>
       <rulesStrings>
-        <li>r_ritualName-&gt;[ritNoun] of [keyDeity]</li>
-        <li>r_ritualName-&gt;[ritNoun] of [chosenTheme]</li>
-        <li>r_ritualName-&gt;[ritNoun] of [memeConcept]</li>
-        <li>r_ritualName-&gt;[memeAdjective] [ritNoun]</li>
-        <li>ritNoun-&gt;return</li>
-        <li>ritNoun-&gt;revival</li>
-        <li>ritNoun-&gt;rise</li>
-        <li>ritNoun-&gt;awakening</li>
+        <li>r_ritualName->[ritNoun] of [keyDeity]</li>
+        <li>r_ritualName->[ritNoun] of [chosenTheme]</li>
+        <li>r_ritualName->[ritNoun] of [memeConcept]</li>
+        <li>r_ritualName->[memeAdjective] [ritNoun]</li>
+        <li>ritNoun->return</li>
+        <li>ritNoun->revival</li>
+        <li>ritNoun->rise</li>
+        <li>ritNoun->awakening</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>

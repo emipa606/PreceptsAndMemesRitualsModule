@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN:
+    <li>r_ritualName->[ritNoun] of [keyDeity]'s call</li>
+    <li>r_ritualName->[ritNoun] of [keyDeity]'s summoning</li>
+    <li>r_ritualName->[ritNoun] of [chosenTheme] assembly</li>
+    <li>r_ritualName->[ritNoun] of [chosenTheme]'s call</li>
+    <li>r_ritualName->[ritNoun] of [memeConcept] assembly</li>
+    <li>r_ritualName->[ritNoun] of [memeConcept]'s call</li>
+    <li>r_ritualName->[memeAdjective] [ritNoun] assembly</li>
+    <li>r_ritualName->[memeAdjective] [ritNoun]'s call</li>
+    <li>ritNoun->chosen</li>
+    <li>ritNoun->champion</li>
+    <li>ritNoun->herald</li>
+    <li>ritNoun->bringer</li>
+    <li>ritNoun->will</li>
+    <li>ritNoun->protector</li>
+  -->
+  <NamerRitualPowerFunnel.rulePack.rulesStrings>
+    <li>r_ritualName->[ritNoun] of [keyDeity]'s call</li>
+    <li>r_ritualName->[ritNoun] of [keyDeity]'s summoning</li>
+    <li>r_ritualName->[ritNoun] of [chosenTheme] assembly</li>
+    <li>r_ritualName->[ritNoun] of [chosenTheme]'s call</li>
+    <li>r_ritualName->[ritNoun] of [memeConcept] assembly</li>
+    <li>r_ritualName->[ritNoun] of [memeConcept]'s call</li>
+    <li>r_ritualName->[memeAdjective] [ritNoun] assembly</li>
+    <li>r_ritualName->[memeAdjective] [ritNoun]'s call</li>
+    <li>ritNoun->chosen</li>
+    <li>ritNoun->champion</li>
+    <li>ritNoun->herald</li>
+    <li>ritNoun->bringer</li>
+    <li>ritNoun->will</li>
+    <li>ritNoun->protector</li>
+  </NamerRitualPowerFunnel.rulePack.rulesStrings>
+</LanguageData>

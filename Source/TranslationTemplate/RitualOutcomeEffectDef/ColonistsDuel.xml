@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Depending on ritual quality, participants will get between -6 and 6 mood for 6 days. -->
+  <ColonistDuel.description>Depending on ritual quality, participants will get between -6 and 6 mood for 6 days.</ColonistDuel.description>
+  <!-- EN: participant count -->
+  <ColonistDuel.comps.0.label>participant count</ColonistDuel.comps.0.label>
+  <!-- EN: leader present -->
+  <ColonistDuel.comps.1.label>leader present</ColonistDuel.comps.1.label>
+  <!-- EN: duelist dies -->
+  <ColonistDuel.comps.2.label>duelist dies</ColonistDuel.comps.2.label>
+  <!-- EN: weapon used -->
+  <ColonistDuel.comps.3.label>weapon used</ColonistDuel.comps.3.label>
+  <!-- EN: Duelists and viewers will gain melee combat experience. -->
+  <ColonistDuel.extraPredictedOutcomeDescriptions.0>Duelists and viewers will gain melee combat experience.</ColonistDuel.extraPredictedOutcomeDescriptions.0>
+  <!-- EN: Spectators will gain a mood boost and fill their recreation bars. -->
+  <ColonistDuel.extraPredictedOutcomeDescriptions.1>Spectators will gain a mood boost and fill their recreation bars.</ColonistDuel.extraPredictedOutcomeDescriptions.1>
+  <!-- EN: Terrible -->
+  <ColonistDuel.outcomeChances.0.label>Terrible</ColonistDuel.outcomeChances.0.label>
+  <!-- EN: The duel was terrible! The fighters bumbled around, ineptly avoiding each other in a extended display of cowardice and weakness. Watching it just made people sad. -->
+  <ColonistDuel.outcomeChances.0.description>The duel was terrible! The fighters bumbled around, ineptly avoiding each other in a extended display of cowardice and weakness. Watching it just made people sad.</ColonistDuel.outcomeChances.0.description>
+  <!-- EN: Boring -->
+  <ColonistDuel.outcomeChances.1.label>Boring</ColonistDuel.outcomeChances.1.label>
+  <!-- EN: The duel was boring. The fighters wouldn't commit, so there were no exciting moments. -->
+  <ColonistDuel.outcomeChances.1.description>The duel was boring. The fighters wouldn't commit, so there were no exciting moments.</ColonistDuel.outcomeChances.1.description>
+  <!-- EN: Good -->
+  <ColonistDuel.outcomeChances.2.label>Good</ColonistDuel.outcomeChances.2.label>
+  <!-- EN: The duel was good. The fighters went for blood and showed real heart. -->
+  <ColonistDuel.outcomeChances.2.description>The duel was good. The fighters went for blood and showed real heart.</ColonistDuel.outcomeChances.2.description>
+  <!-- EN: Unforgettable -->
+  <ColonistDuel.outcomeChances.3.label>Unforgettable</ColonistDuel.outcomeChances.3.label>
+  <!-- EN: The duel was unforgettable! Both fighters gave all they had. -->
+  <ColonistDuel.outcomeChances.3.description>The duel was unforgettable! Both fighters gave all they had.</ColonistDuel.outcomeChances.3.description>
+</LanguageData>

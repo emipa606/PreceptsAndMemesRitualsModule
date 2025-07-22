@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN:
+    <li>r_ritualName->[ritNoun] of [keyDeity]</li>
+    <li>r_ritualName->[ritNoun] of [chosenTheme]</li>
+    <li>r_ritualName->[ritNoun] of [memeConcept]</li>
+    <li>r_ritualName->[memeAdjective] [ritNoun]</li>
+    <li>ritNoun->return</li>
+    <li>ritNoun->revival</li>
+    <li>ritNoun->rise</li>
+    <li>ritNoun->awakening</li>
+  -->
+  <NamerRitualEquivExchange.rulePack.rulesStrings>
+    <li>r_ritualName->[ritNoun] of [keyDeity]</li>
+    <li>r_ritualName->[ritNoun] of [chosenTheme]</li>
+    <li>r_ritualName->[ritNoun] of [memeConcept]</li>
+    <li>r_ritualName->[memeAdjective] [ritNoun]</li>
+    <li>ritNoun->return</li>
+    <li>ritNoun->revival</li>
+    <li>ritNoun->rise</li>
+    <li>ritNoun->awakening</li>
+  </NamerRitualEquivExchange.rulePack.rulesStrings>
+</LanguageData>

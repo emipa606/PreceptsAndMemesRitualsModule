@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: equivalen exchange ritual -->
+  <EquivalentExchange.label>equivalen exchange ritual</EquivalentExchange.label>
+  <!-- EN: Allows you to exchange the life of one pawn to bring another back to life. The sacrifice must be a willing colonist of your own faction and ideoligion. There's a chance for it to fail. -->
+  <EquivalentExchange.description>Allows you to exchange the life of one pawn to bring another back to life. The sacrifice must be a willing colonist of your own faction and ideoligion. There's a chance for it to fail.</EquivalentExchange.description>
+</LanguageData>

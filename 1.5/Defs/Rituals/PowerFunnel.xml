@@ -1,23 +1,23 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <RulePackDef>
     <defName>NamerRitualPowerFunnel</defName>
     <rulePack>
       <rulesStrings>
-        <li>r_ritualName-&gt;[ritNoun] of [keyDeity]'s call</li>
-        <li>r_ritualName-&gt;[ritNoun] of [keyDeity]'s summoning</li>
-        <li>r_ritualName-&gt;[ritNoun] of [chosenTheme] assembly</li>
-        <li>r_ritualName-&gt;[ritNoun] of [chosenTheme]'s call</li>
-        <li>r_ritualName-&gt;[ritNoun] of [memeConcept] assembly</li>
-        <li>r_ritualName-&gt;[ritNoun] of [memeConcept]'s call</li>
-        <li>r_ritualName-&gt;[memeAdjective] [ritNoun] assembly</li>
-        <li>r_ritualName-&gt;[memeAdjective] [ritNoun]'s call</li>
-        <li>ritNoun-&gt;chosen</li>
-        <li>ritNoun-&gt;champion</li>
-        <li>ritNoun-&gt;herald</li>
-        <li>ritNoun-&gt;bringer</li>
-        <li>ritNoun-&gt;will</li>
-        <li>ritNoun-&gt;protector</li>
+        <li>r_ritualName->[ritNoun] of [keyDeity]'s call</li>
+        <li>r_ritualName->[ritNoun] of [keyDeity]'s summoning</li>
+        <li>r_ritualName->[ritNoun] of [chosenTheme] assembly</li>
+        <li>r_ritualName->[ritNoun] of [chosenTheme]'s call</li>
+        <li>r_ritualName->[ritNoun] of [memeConcept] assembly</li>
+        <li>r_ritualName->[ritNoun] of [memeConcept]'s call</li>
+        <li>r_ritualName->[memeAdjective] [ritNoun] assembly</li>
+        <li>r_ritualName->[memeAdjective] [ritNoun]'s call</li>
+        <li>ritNoun->chosen</li>
+        <li>ritNoun->champion</li>
+        <li>ritNoun->herald</li>
+        <li>ritNoun->bringer</li>
+        <li>ritNoun->will</li>
+        <li>ritNoun->protector</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>

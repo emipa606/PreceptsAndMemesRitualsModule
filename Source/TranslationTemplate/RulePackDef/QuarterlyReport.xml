@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN:
+    <li>r_ritualName->[ritNoun] of [keyDeity]</li>
+    <li>r_ritualName->[ritNoun] of [chosenTheme]</li>
+    <li>r_ritualName->[ritNoun] of [memeConcept]</li>
+    <li>r_ritualName->[memeAdjective] [ritNoun]</li>
+    <li>ritNoun->report</li>
+    <li>ritNoun->analysis</li>
+    <li>ritNoun->records</li>
+  -->
+  <NamerRitualQuarterlyReport.rulePack.rulesStrings>
+    <li>r_ritualName->[ritNoun] of [keyDeity]</li>
+    <li>r_ritualName->[ritNoun] of [chosenTheme]</li>
+    <li>r_ritualName->[ritNoun] of [memeConcept]</li>
+    <li>r_ritualName->[memeAdjective] [ritNoun]</li>
+    <li>ritNoun->report</li>
+    <li>ritNoun->analysis</li>
+    <li>ritNoun->records</li>
+  </NamerRitualQuarterlyReport.rulePack.rulesStrings>
+</LanguageData>

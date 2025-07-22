@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Depending on ritual quality, participants will get between -6 and +6 mood for 6 days. The pawn inside the casket will revive if the ritual is satisfying or better. -->
+  <EquivalentExchange.description>Depending on ritual quality, participants will get between -6 and +6 mood for 6 days. The pawn inside the casket will revive if the ritual is satisfying or better.</EquivalentExchange.description>
+  <!-- EN: Moral guide present -->
+  <EquivalentExchange.comps.0.label>Moral guide present</EquivalentExchange.comps.0.label>
+  <!-- EN: participant count -->
+  <EquivalentExchange.comps.1.label>participant count</EquivalentExchange.comps.1.label>
+  <!-- EN: Terrible -->
+  <EquivalentExchange.outcomeChances.0.label>Terrible</EquivalentExchange.outcomeChances.0.label>
+  <!-- EN: The {0} was terrible! We've been forsaken by death. -->
+  <EquivalentExchange.outcomeChances.0.description>The {0} was terrible! We've been forsaken by death.</EquivalentExchange.outcomeChances.0.description>
+  <!-- EN: Bad -->
+  <EquivalentExchange.outcomeChances.1.label>Bad</EquivalentExchange.outcomeChances.1.label>
+  <!-- EN: The {0} was bad. Death isn't on our side today. -->
+  <EquivalentExchange.outcomeChances.1.description>The {0} was bad. Death isn't on our side today.</EquivalentExchange.outcomeChances.1.description>
+  <!-- EN: Satisfying -->
+  <EquivalentExchange.outcomeChances.2.label>Satisfying</EquivalentExchange.outcomeChances.2.label>
+  <!-- EN: The {0} was satisfying. Death is on our side today. -->
+  <EquivalentExchange.outcomeChances.2.description>The {0} was satisfying. Death is on our side today.</EquivalentExchange.outcomeChances.2.description>
+  <!-- EN: Spectacular -->
+  <EquivalentExchange.outcomeChances.3.label>Spectacular</EquivalentExchange.outcomeChances.3.label>
+  <!-- EN: The {0} was spectacular! Death's blessings bathe us. -->
+  <EquivalentExchange.outcomeChances.3.description>The {0} was spectacular! Death's blessings bathe us.</EquivalentExchange.outcomeChances.3.description>
+</LanguageData>

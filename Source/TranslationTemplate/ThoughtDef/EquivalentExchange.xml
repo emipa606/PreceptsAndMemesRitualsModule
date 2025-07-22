@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: bad ritual -->
+  <BadEquivalentExchange.stages.bad_ritual.label>bad ritual</BadEquivalentExchange.stages.bad_ritual.label>
+  <!-- EN: We are not in tune with Death -->
+  <BadEquivalentExchange.stages.bad_ritual.description>We are not in tune with Death</BadEquivalentExchange.stages.bad_ritual.description>
+  <!-- EN: resurrected -->
+  <ForcefulResurrection.stages.resurrected.label>resurrected</ForcefulResurrection.stages.resurrected.label>
+  <!-- EN: I hate this. It was much better when I was dead. -->
+  <ForcefulResurrection.stages.resurrected.description>I hate this. It was much better when I was dead.</ForcefulResurrection.stages.resurrected.description>
+  <!-- EN: satisfying ritual -->
+  <SatisfyingEquivalentExchange.stages.satisfying_ritual.label>satisfying ritual</SatisfyingEquivalentExchange.stages.satisfying_ritual.label>
+  <!-- EN: Death is on our side. -->
+  <SatisfyingEquivalentExchange.stages.satisfying_ritual.description>Death is on our side.</SatisfyingEquivalentExchange.stages.satisfying_ritual.description>
+  <!-- EN: spectacular ritual -->
+  <SpectacularEquivalentExchange.stages.spectacular_ritual.label>spectacular ritual</SpectacularEquivalentExchange.stages.spectacular_ritual.label>
+  <!-- EN: We've been blessed by Death! -->
+  <SpectacularEquivalentExchange.stages.spectacular_ritual.description>We've been blessed by Death!</SpectacularEquivalentExchange.stages.spectacular_ritual.description>
+  <!-- EN: terrible ritual -->
+  <TerribleEquivalentExchange.stages.terrible_ritual.label>terrible ritual</TerribleEquivalentExchange.stages.terrible_ritual.label>
+  <!-- EN: We've been forsaken by Death -->
+  <TerribleEquivalentExchange.stages.terrible_ritual.description>We've been forsaken by Death</TerribleEquivalentExchange.stages.terrible_ritual.description>
+</LanguageData>
